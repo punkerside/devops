@@ -5,6 +5,8 @@ services:
     image: node:18
     command: npm start
     working_dir: /app
+    environment:
+      - API_BASE_URL=http://localhost:5000/user
     volumes:
       - ./app/ui:/app
     ports:

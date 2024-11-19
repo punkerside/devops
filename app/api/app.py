@@ -1,8 +1,12 @@
 import os
 from flask import Flask, request, jsonify
 import memcache
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+# Habilitar CORS para todas las rutas
+CORS(app)
 
 MEMCACHED_HOST = os.getenv('MEMCACHED_HOST')
 if not MEMCACHED_HOST:
