@@ -1,0 +1,5 @@
+FROM python:3.11
+RUN apt-get update && apt-get upgrade -y
+RUN pip3 install flask python-memcached
+WORKDIR /app
+CMD [ "python3", "app.py" ]

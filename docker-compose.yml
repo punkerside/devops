@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    image: ${project}-${env}:base
+    volumes:
+      - ./app/api:/app
+    environment:
+      - MEMCACHED_HOST=memcached:11211
+    ports:
+      - "5000:5000"
+    depends_on:
+      - memcached
+
+  memcached:
+    image: memcached:latest
+    container_name: memcached
+    ports:
+      - "11211:11211"
